@@ -424,8 +424,8 @@
   <table>
     <thead><tr><th>THING</th><th>EXAMPLE VALUE</th></tr></thead>
     <tbody>
-      <tr><td>PC MAC address</td><td><code>B4:2E:99:F1:03:74</code></td></tr>
-      <tr><td>VPS public IPv4</td><td><code>129.150.57.164</code></td></tr>
+      <tr><td>PC MAC address</td><td><code>xx:xx:xx:xx:xx:xx</code></td></tr>
+      <tr><td>VPS public IPv4</td><td><code>xxx.xxx.xxx.xxx</code></td></tr>
       <tr><td>WireGuard VPS tunnel IP</td><td><code>10.100.0.1/24</code></td></tr>
       <tr><td>WireGuard OpenWrt tunnel IP</td><td><code>10.100.0.2/24</code></td></tr>
       <tr><td>WireGuard UDP port</td><td><code>51820</code></td></tr>
@@ -482,7 +482,7 @@ opkg install etherwake luci-app-wol</pre>
   <div class="code-block">
     <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>OpenWrt SSH // TEST WoL</span></div>
     <button class="copy-btn" onclick="copyCode(this)">COPY</button>
-    <pre>etherwake -i br-lan B4:2E:99:F1:03:74</pre>
+    <pre>etherwake -i br-lan xx:xx:xx:xx:xx:xx</pre>
   </div>
 
   <p>Not sure of your LAN interface name? Find it:</p>
@@ -615,7 +615,7 @@ uci add_list network.wg0.addresses='10.100.0.2/24'
 
 uci add network wireguard_wg0
 uci set network.@wireguard_wg0[-1].public_key='&lt;VPS_PUBLIC_KEY&gt;'
-uci set network.@wireguard_wg0[-1].endpoint_host='129.150.57.164'
+uci set network.@wireguard_wg0[-1].endpoint_host='xxx.xxx.xxx.xxx'
 uci set network.@wireguard_wg0[-1].endpoint_port='51820'
 uci set network.@wireguard_wg0[-1].persistent_keepalive='25'
 uci add_list network.@wireguard_wg0[-1].allowed_ips='10.100.0.1/32'
@@ -736,7 +736,7 @@ uci set firewall.@forwarding[-1].dest='lan'</pre>
     <div class="code-header"><div class="code-dots"><span></span><span></span><span></span></div><span>wake.sh // SHELL</span></div>
     <button class="copy-btn" onclick="copyCode(this)">COPY</button>
     <pre>#!/bin/sh
-etherwake -i br-lan B4:2E:99:F1:03:74</pre>
+etherwake -i br-lan xx:xx:xx:xx:xx:xx</pre>
   </div>
 
   <div class="code-block">
@@ -942,7 +942,7 @@ sudo chmod 755 /usr/local/lib/wake</pre>
   </div>
 
   <p>Your final wake URL will be:</p>
-  <div class="terminal">http://129.150.57.164/wake-9f3a7c1b2e</div>
+  <div class="terminal">http://xxx.xxx.xxx.xxx/wake-9f3a7c1b2e</div>
 </section>
 
 <!-- STEP 14 -->
@@ -991,7 +991,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful</div>
 wake sent</div>
 
   <h3>▸ 15.3 Test from Browser or Phone</h3>
-  <div class="terminal">http://129.150.57.164/wake-9f3a7c1b2e</div>
+  <div class="terminal">http://xxx.xxx.xxx.xxx/wake-9f3a7c1b2e</div>
 
   <div class="callout ok">
     <span class="pulse"></span>
